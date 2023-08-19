@@ -24,12 +24,13 @@ jobs:
     - name: Run Tests
       run: |
         python tests/basic-test.py  
+        python tests/another-test.py
 
     - name: Publish Test Artifacts (Optional)
-          uses: actions/upload-artifact@v2
-          with:
-            name: nytimes-screenshot
-            path: ./artifacts/screenshots/
+      uses: actions/upload-artifact@v2
+      with:
+        name: screenshots
+        path: ./artifacts/screenshots/
       
  
 
