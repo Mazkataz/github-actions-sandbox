@@ -17,21 +17,19 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install selenium
-      
+
     - name: Setup Chrome Driver
       uses: nanasess/setup-chromedriver@master
-      with:
-        chromedriver-version: 'latest'
-      env:
-        CHROMEWEBDRIVER: '/usr/local/bin/chromedriver'
-      
+
     - name: Run Tests
       run: |
-        python tests/selenium_test.py  
-      
+        python tests/basic-test.py  
+
     - name: Publish Test Artifacts (Optional)
-      if: failure() 
-      uses: actions/upload-artifact@v2
-      with:
-        name: failed-screenshots
-        path: ./screenshots/ 
+          uses: actions/upload-artifact@v2
+          with:
+            name: nytimes-screenshot
+            path: ./artifacts/screenshots/
+      
+ 
+
